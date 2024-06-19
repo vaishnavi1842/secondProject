@@ -1,0 +1,28 @@
+.imgcontainer{
+  height: 330px;
+  width: 350px;
+   img{
+    height: 100%;
+    width: 100%;
+    object-fit:cover ;
+   }
+}
+
+.noAvailable{
+    filter: blur(1px) grayscale(1);
+}
+
+
+.noproduct{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    font-size: 30px;
+    
+}
+.img-fluid{
+    width: 120px;
+}
+// .card{
+//     border: 2px solid bl;
+// }

@@ -1,0 +1,88 @@
+<div class="container mb-4">
+    <p class="bg-info p-4 text-white display-4 font-weight-bold text-center">Mobile Task</p>
+    <div class="row">
+        <div class="col-md-12 mb-3" *ngFor="let arr of mobileArray">
+            <div class="card"
+            [ngClass]="{
+                noAvailable:!arr.isAvailable
+            }">
+            <p class="noproduct d-flex justify-content-center align-items-end" *ngIf="!arr.isAvailable">
+                Product is not available
+            </p>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                          <div class="imgcontainer">
+                            <img
+                            *ngIf="arr.image ; else noImage"
+                            [src]="arr.image"
+                            class="img-fluid"  
+                            [alt]="arr.name"
+                            [title]="arr.name">
+                            <ng-template #noImage>
+                                <img src="https://placehold.co/600x400" alt="">
+                            </ng-template>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h2>{{arr.name}} 
+
+                                <small class="text-white p-1 rounded"
+                                [ngClass]="{
+                                    'badge badge-success':arr.rating>=4,
+                                    'badge badge-warning':arr.rating>=3 && arr.rating<4,
+                                    'badge badge-danger':arr.rating<3
+                                   
+                                }"
+                                >
+                                    {{arr.rating}}
+                                    
+                                </small>
+                            </h2>   
+                            <mat-list role="list">
+                                <mat-list-item role="listitem" *ngFor="let space of arr.specifications">{{space}}</mat-list-item>
+                              </mat-list>
+                              
+                        </div>
+                        <div class="col-md-4">
+                            <h3 class="text-center mr-4 font-size-bold">
+                                ₹{{arr.price}}
+                                <img class="img-fluid ml-4" src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png" alt="">
+                            </h3>
+                            <div class="row">
+                                <div class="col-md-6 text-center">
+                                    <s class="h4">                                    
+                                        ₹{{arr.Oprice}}
+                                    </s>
+                                    <h5 class="ml-4">
+                                        {{arr.Delivery}}
+                                    </h5>
+                                    <h4 class="ml-4 text-primary">
+                                        {{arr.Bank}}
+                                    </h4>
+                                    <div class="ml-4" *ngIf="arr.status">
+                                        <h4 class="text-success">
+                                            In Stock..!!
+                                        </h4>
+                                    </div>
+                                    <div class="ml-4" *ngIf="!arr.status">
+                                        <h4 class="text-danger">
+                                            Out of Stock..!!
+                                        </h4>
+                                    </div>
+                                    <h6 class="text-danger ml-4 font-weight-bold">
+                                        {{arr.stock}}
+                                    </h6>
+                                </div>
+                                <div class="col-md-6 h4 text-success font-weight-bold">
+                                    {{arr.Disscount}}
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>

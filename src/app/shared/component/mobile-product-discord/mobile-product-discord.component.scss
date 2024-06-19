@@ -1,0 +1,30 @@
+.imgContainer{
+    height: 300px;
+    width: 350px;
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.img-fluid{
+    width: 100px;
+}
+.noAvailable{
+    filter: blur(1px) grayscale(1);
+}
+.size{
+    font-weight:500;
+}
+s{
+    font-size: large;
+    font-weight: 500;
+    font-style: italic;
+}
+
+li{
+    font-size: medium;
+    line-height: 30px;
+    list-style: none;
+}

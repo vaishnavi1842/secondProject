@@ -1,0 +1,42 @@
+.imageContainer{
+    height: 300px;
+    width: 350px;
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+h1{
+    font-weight: 500;
+    font-size: 28px;
+}
+
+.spc{
+    list-style: none;
+    line-height: 35px;
+    font-weight: 500;
+}
+small{
+    padding: 2px;
+}
+
+.img-fluid{
+  width: 120px;
+}
+.noAvailable{
+    filter: blur(1px) grayscale(1);
+}
+
+.content li{
+    list-style: none;
+}
+.margin{
+    margin-bottom: 10px;
+}
+
+.size{
+    font-size: 15px;
+    font-weight: 400;
+}

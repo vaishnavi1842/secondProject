@@ -1,0 +1,85 @@
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-md-12" *ngFor="let arr of mobArr">
+            <div class="card"
+            [ngClass]="{
+                noAvailable:!arr.isAvailable
+            }">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="imgContainer">
+                                <img 
+                                *ngIf="arr.image; else noImage"
+                                [src]="arr.image" 
+                                [alt]="arr.name"
+                                [title]="arr.name">
+                                <ng-template #noImage>
+                                    <img src="https://placehold.co/600x400" alt="">
+                                </ng-template>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h1 class="font-weight-bold">
+                                {{arr.name}}
+                                <small class="p-1 rounded"
+                                [ngClass]="{
+                                    'bg-info':arr.rating>4,
+                                    'bg-success':arr.rating>3 && arr.rating<4,
+                                    'bg-danger':arr.rating < 3
+                                }">
+                                    {{arr.rating}}
+                                </small>
+                            </h1>
+                            <ul>
+                                <li *ngFor="let space of arr.specifications">
+                                    {{space}}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h2 class="size">
+                                ₹{{arr.price}}
+                                <img 
+                                class="img-fluid ml-4"
+                                src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png" alt="">
+                            </h2>
+                            <div class="row">
+                                <div class="col-md-6 ">
+                                    <s>
+                                        ₹{{arr.Oprice}}
+                                    </s>
+                                    <div>
+                                        {{arr.Delivery}}
+                                    </div>
+                                    <div class="text-success font-weight-bold">
+                                        {{arr.Bank}}
+                                    </div>
+                                    <div class="text-danger font-weight-bold">
+                                        {{arr.stock}}
+                                    </div>
+                                    <div class="text-info font-weight-bold" *ngIf="arr.status">
+                                        <p>
+                                            In Stock
+                                        </p>
+                                    </div>
+                                    <div class="text-danger font-weight-bold" *ngIf="!arr.status">
+                                        <p>
+                                            Out of Stock
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 text-primary font-weight-bold">
+                                    {{arr.Disscount}}
+                                </div>
+                                <p class="text-center ml-3" *ngIf="!arr.isAvailable">
+                                    Product is not Available
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
